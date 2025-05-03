@@ -1,0 +1,44 @@
+export declare const useStyles: () => {
+    styles: {
+        componentDragHandle: string;
+        componentPropertiesActions: string;
+        designerWorkArea: string;
+        hasConfigErrors: string;
+        mainArea: string;
+        shaComponent: string;
+        shaComponentControls: string;
+        shaComponentGhost: string;
+        shaComponentIndicator: string;
+        shaComponentSearch: string;
+        shaComponentTitle: string;
+        shaComponentValidationIcon: string;
+        shaComponentsContainer: string;
+        shaComponentsContainerInner: string;
+        shaDatasourceTree: string;
+        shaDesignerCanvasConfig: string;
+        shaDesignerHeader: string;
+        shaDesignerHeaderRight: string;
+        shaDesignerToolbar: string;
+        shaToolboxComponents: string;
+        shaDesignerToolbarLeft: string;
+        shaDesignerToolbarRight: string;
+        shaDesignerToolbox: string;
+        shaDesignerWarning: string;
+        shaDragging: string;
+        shaDropHint: string;
+        shaForm: string;
+        shaHelpIcon: string;
+        shaToolboxComponent: string;
+        shaToolboxPanelComponents: string;
+        shaToolboxPanel: string;
+        shaToolboxPanelItems: string;
+        sidebarContainerMainAreaBody: string;
+        sidebarHeaderTitle: string;
+        siteTreeSearchValue: string;
+    };
+};
+export declare const useMainStyles: (props?: unknown) => import("antd-style").ReturnStyles<{
+    designerPage: string;
+    formDesigner: string;
+    quickEditModal: string;
+}>;

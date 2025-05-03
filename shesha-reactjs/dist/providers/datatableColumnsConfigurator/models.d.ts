@@ -1,0 +1,75 @@
+import { FormIdentifier, IConfigurableFormComponent } from '../../interfaces';
+import { DatatableColumnType, IActionColumnProps, IAnchoredDirection } from '../../providers/dataTable/interfaces';
+type ColumnsItemType = 'item' | 'group';
+export interface IColumnEditorProps extends IConfigurableFormComponent {
+}
+export interface IFieldComponentProps {
+    type: string;
+    settings?: IColumnEditorProps;
+}
+export interface IEditableColumnProps {
+    displayComponent?: IFieldComponentProps;
+    editComponent?: IFieldComponentProps;
+    createComponent?: IFieldComponentProps;
+}
+/**
+ * Base properties of configurable column
+ */
+export interface IConfigurableColumnsBase {
+    id: string;
+    caption: string;
+    columnType?: DatatableColumnType;
+    sortOrder: number;
+    itemType: ColumnsItemType;
+    description?: string;
+    minWidth?: number;
+    maxWidth?: number;
+    isVisible: boolean;
+    permissions?: string[];
+    backgroundColor?: string;
+}
+/**
+ * Configurable table column
+ */
+export interface IConfigurableColumnsProps extends IConfigurableColumnsBase {
+    columnType: DatatableColumnType;
+    anchored?: IAnchoredDirection;
+    customVisibility?: string;
+    customEnabled?: string;
+}
+/**
+ * Configurable data column (displays property of the model)
+ */
+export interface IDataColumnsProps extends IConfigurableColumnsProps, IEditableColumnProps {
+    propertyName: string;
+    allowSorting: boolean;
+}
+/**
+ * Configurable form column (displays form)
+ */
+export interface IFormColumnsProps extends IConfigurableColumnsProps, IEditableColumnProps {
+    propertiesNames?: string;
+    displayFormId?: FormIdentifier;
+    createFormId?: FormIdentifier;
+    editFormId?: FormIdentifier;
+    minHeight?: number;
+}
+/**
+ * Configurable action column
+ */
+export interface IConfigurableActionColumnsProps extends IConfigurableColumnsProps, IActionColumnProps {
+}
+/**
+ * Configurable columns group
+ */
+export interface IConfigurableColumnGroup extends IConfigurableColumnsBase {
+    childItems?: ColumnsItemProps[];
+}
+export type ColumnsItemProps = IConfigurableColumnsProps | IConfigurableColumnGroup;
+export declare const standardCellComponentTypes: {
+    defaultDisplay: string;
+    notEditable: string;
+};
+export declare const isDataColumnProps: (column: IConfigurableColumnsProps) => column is IDataColumnsProps;
+export declare const isActionColumnProps: (column: IConfigurableColumnsProps) => column is IConfigurableActionColumnsProps;
+export {};

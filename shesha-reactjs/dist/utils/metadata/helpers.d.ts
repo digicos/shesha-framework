@@ -1,0 +1,10 @@
+import { IContent } from '../../designer-components/text/utils';
+import { IconType } from '../../components/shaIcon';
+import { IModelMetadata, IPropertyMetadata } from '../../interfaces/metadata';
+export declare const getIconByDataType: (dataType: string) => IconType;
+export declare const getIconByPropertyMetadata: (metadata: IPropertyMetadata) => import("react").ReactNode;
+export declare const getFullPath: (property: IPropertyMetadata) => any;
+export declare const getDataProperty: (properties: IPropertyMetadata[], name: string, propertyName?: string) => any;
+export declare const getFormatContent: (content: string, metadata: Pick<IContent, "dataFormat" | "dataType">) => any;
+export declare const getEntityIdType: (metadata: IModelMetadata) => string;
+export declare const getEntityIdJsType: (metadata: IModelMetadata) => string;

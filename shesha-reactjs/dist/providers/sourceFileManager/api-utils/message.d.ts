@@ -1,0 +1,1 @@
+export declare const messageApiDefinition = "\nexport interface MessageType extends PromiseLike<boolean> {\n    (): void;\n}\n\nexport type TypeOpen = (content: string, duration?: number | VoidFunction, onClose?: VoidFunction) => MessageType;\n\nexport type MessageApi = {\n    info: TypeOpen;\n    success: TypeOpen;\n    warning: TypeOpen;\n    error: TypeOpen;\n};";

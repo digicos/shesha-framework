@@ -1,0 +1,53 @@
+import { IReferenceListIdentifier } from "../../interfaces";
+import { IObjectMetadata, IPropertyMetadata, ModelTypeIdentifier, PropertiesLoader, TypeDefinitionLoader } from "../../interfaces/metadata";
+import { StandardConstantInclusionArgs } from "./useAvailableConstants";
+export interface IMetadataBuilder {
+    add(dataType: string, path: string, label: string): this;
+    addString(path: string, label: string): this;
+    addNumber(path: string, label: string): this;
+    addDate(path: string, label: string): this;
+    addBoolean(path: string, label: string): this;
+    addArray(path: string, label: string): this;
+    addCustom(path: string, label: string, typeDefinitionLoader: TypeDefinitionLoader): this;
+    addFunction(path: string, label: string): this;
+    addObject(path: string, label: string, propertiesBuilder: PropertiesBuilder): this;
+    isEntityAsync(entityType: string): Promise<boolean>;
+    addEntityAsync(path: string, label: string, entityType: string): Promise<this>;
+    addStandard(args: StandardConstantInclusionArgs | StandardConstantInclusionArgs[]): this;
+    addAllStandard(exclusions?: string[]): this;
+    addRefList(path: string, refListId: IReferenceListIdentifier, label: string): this;
+    setPropertiesLoader(loader: PropertiesLoader): this;
+    setProperties(properties: IPropertyMetadata[]): any;
+    setTypeDefinition(typeDefinitionLoader: TypeDefinitionLoader): this;
+    build(): IObjectMetadata;
+}
+export type PropertiesBuilder = (builder: MetadataBuilder) => void;
+export type MetadataFetcher = (typeId: ModelTypeIdentifier) => Promise<IObjectMetadata>;
+export type MetadataBuilderAction = (builder: MetadataBuilder, name: string) => void;
+export declare class MetadataBuilder implements IMetadataBuilder {
+    readonly metadataFetcher: MetadataFetcher;
+    readonly _standardProperties: Map<string, MetadataBuilderAction>;
+    private metadata;
+    constructor(metadataFetcher: MetadataFetcher, name: string, description?: string);
+    registerStandardProperty(key: string, action: MetadataBuilderAction): void;
+    _createProperty(dataType: string, path: string, label: string): IPropertyMetadata;
+    add(dataType: string, path: string, label: string): this;
+    addString(path: string, label: string): this;
+    addNumber(path: string, label: string): this;
+    addDate(path: string, label: string): this;
+    addBoolean(path: string, label: string): this;
+    addArray(path: string, label: string): this;
+    addCustom(path: string, label: string, typeDefinitionLoader: TypeDefinitionLoader): this;
+    addFunction(path: string, label: string): this;
+    addObject(path: string, label: string, propertiesBuilder: PropertiesBuilder): this;
+    addMetadataBuilder(): this;
+    isEntityAsync(entityType: string): Promise<boolean>;
+    addEntityAsync(path: string, label: string, entityType: string): Promise<this>;
+    addStandard(args: StandardConstantInclusionArgs | StandardConstantInclusionArgs[]): this;
+    addAllStandard(exclusions?: string[]): this;
+    addRefList(path: string, refListId: IReferenceListIdentifier, label: string): this;
+    setPropertiesLoader(loader: PropertiesLoader): this;
+    setProperties(properties: IPropertyMetadata[]): void;
+    setTypeDefinition(typeDefinitionLoader: TypeDefinitionLoader): this;
+    build(): IObjectMetadata;
+}

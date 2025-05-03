@@ -1,0 +1,42 @@
+import { FC, PropsWithChildren } from 'react';
+import { GetDataError } from '../../hooks';
+import { ISubFormProviderProps } from './interfaces';
+declare const SubFormProvider: FC<PropsWithChildren<ISubFormProviderProps>>;
+declare function useSubFormState(require: boolean): import("./contexts").ISubFormStateContext;
+declare function useSubFormActions(require: boolean): import("./contexts").ISubFormActionsContext;
+declare function useSubForm(require?: boolean): {
+    hasFetchedConfig?: boolean;
+    initialValues?: any;
+    components?: import("../../interfaces").IConfigurableFormComponent[];
+    formSettings?: import("../../interfaces").IFormSettings;
+    propertyName?: string;
+    errors?: {
+        getData?: GetDataError<unknown>;
+        getForm?: GetDataError<unknown>;
+        postData?: GetDataError<unknown>;
+        putData?: GetDataError<unknown>;
+    };
+    loading?: {
+        getData?: boolean;
+        getForm?: boolean;
+        postData?: boolean;
+        putData?: boolean;
+    };
+    value?: any;
+    context?: string;
+    fetchedEntityId?: string;
+    description?: string;
+    id?: string;
+    name?: string;
+    module?: string;
+    versionNo?: number;
+    versionStatus?: number;
+    allComponents: import("../../interfaces").IComponentsDictionary;
+    componentRelations: import("../../interfaces").IComponentRelations;
+    getData?: () => void;
+    postData?: () => void;
+    putData?: () => void;
+    deleteData?: () => void;
+    getChildComponents: (id: string) => import("../../interfaces").IConfigurableFormComponent[];
+};
+export { SubFormProvider, useSubForm, useSubFormActions, useSubFormState };

@@ -1,0 +1,1 @@
+export declare const globalStateApiDefinition = "export interface GlobalStateType {\n    [name: string]: any;\n  }\n  \n  export interface ISetStatePayload {\n    data?: any;\n    key?: string;\n  }\n  \n  export type SetGlobalStateType = (payload: ISetStatePayload) => void;\n";

@@ -1,0 +1,22 @@
+export declare const useStyles: (props?: unknown) => import("antd-style").ReturnStyles<{
+    shaSettingsEditor: string;
+    shaSettingsEditorToolbar: string;
+    shaSettingsEditorToolbarLeft: string;
+    shaSettingsEditorToolbarRight: string;
+    shaSettingsEditorMain: string;
+    shaSettingsEditorToolbox: string;
+    shaSettingSearch: string;
+    shaToolboxPanel: string;
+    shaToolboxComponent: string;
+    shaSettingsEditorHeader: string;
+    shaDesignerHeaderRight: string;
+    propsPanelHeader: string;
+    propsPanelTitle: string;
+    propsPanelBody: string;
+    propsPanelBodyContent: string;
+    container: string;
+    split: string;
+    mainArea: string;
+    propsPanel: string;
+    propsPanelContent: string;
+}>;

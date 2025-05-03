@@ -1,0 +1,13 @@
+import qs, { ParsedQs } from 'qs';
+export declare const normalizeUrl: (url: string) => string;
+export declare const isSameUrls: (url1: string, url2: string) => boolean;
+export declare const getUrlWithoutQueryParams: (url: string) => string;
+export declare const getQueryString: (url: string) => string;
+export type QueryStringParams = ParsedQs;
+export declare const getQueryParams: (url?: string) => QueryStringParams;
+export declare const getQueryParam: (name: string) => string | string[] | qs.ParsedQs | qs.ParsedQs[];
+export declare const setQueryParam: (url: string, key: string, value: string) => string;
+export declare const isValidSubmitVerb: (submitVerb: string) => boolean;
+export declare const joinUrlAndPath: (baseUrl: string, path: string) => string;
+export declare function removeURLParameter(url: string, parameter: string): string;
+export declare const buildUrl: (url: string, queryParams?: Record<string, any>) => string;

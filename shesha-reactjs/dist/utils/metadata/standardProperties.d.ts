@@ -1,0 +1,26 @@
+import { MetadataBuilderAction } from '../../utils/metadata/metadataBuilder';
+export declare const SheshaConstants: {
+    http: string;
+    message: string;
+    moment: string;
+    globalState: string;
+    setGlobalState: string;
+    selectedRow: string;
+    contexts: string;
+    pageContext: string;
+    form: string;
+    formData: string;
+    application: string;
+    query: string;
+};
+export declare const registerHttpAction: MetadataBuilderAction;
+export declare const registerMessageAction: MetadataBuilderAction;
+export declare const registerMomentAction: MetadataBuilderAction;
+export declare const registerGlobalStateAction: MetadataBuilderAction;
+export declare const registerSetGlobalStateAction: MetadataBuilderAction;
+export declare const registerSelectedRowAction: MetadataBuilderAction;
+export declare const registerContextsAction: MetadataBuilderAction;
+export declare const registerPageContextAction: MetadataBuilderAction;
+export declare const registerFormAction: MetadataBuilderAction;
+export declare const registerMetadataBuilderAction: MetadataBuilderAction;
+export declare const registerQueryAction: MetadataBuilderAction;

@@ -1,0 +1,130 @@
+import { UseGetProps } from '../hooks/useGet';
+import { IAjaxResponse, IAjaxResponseBase } from '../interfaces/ajaxResponse';
+export interface StoredFileDeleteQueryParams {
+    /**
+     * File Id
+     */
+    fileId: string;
+    /**
+     * Id of the owner entity
+     */
+    ownerId?: string;
+    /**
+     * Type short alias of the owner entity
+     */
+    ownerType?: string;
+    /**
+     * File category
+     */
+    fileCategory?: string;
+    /**
+     * Property name of the owner entity. Is used for direct links only (when owner references file using foreign key)
+     */
+    propertyName?: string;
+    /**
+     * The requested API version
+     */
+    'api-version'?: string;
+}
+/**
+ * Stored File version info
+ */
+export interface StoredFileVersionInfoDto {
+    id?: string;
+    /**
+     * Date of the upload
+     */
+    dateUploaded?: string | null;
+    /**
+     * File size
+     */
+    size?: number | null;
+    /**
+     * User uploaded this version
+     */
+    uploadedBy?: string | null;
+    /**
+     * File name
+     */
+    fileName?: string | null;
+    /**
+     * Version number
+     */
+    versionNo?: number;
+    /**
+     * Url for version downloading
+     */
+    url?: string | null;
+}
+export interface StoredFileDto {
+    error?: string | null;
+    id?: string | null;
+    name?: string | null;
+    fileCategory?: string | null;
+    url?: string | null;
+    size?: number;
+    type?: string | null;
+    temporary?: boolean;
+}
+export interface StoredFileGetQueryParams {
+    id?: string;
+    /**
+     * The requested API version
+     */
+    'api-version'?: string;
+}
+export type StoredFileDtoAjaxResponse = IAjaxResponse<StoredFileDto>;
+export type UseStoredFileGetProps = Omit<UseGetProps<StoredFileDtoAjaxResponse, StoredFileGetQueryParams, void>, 'path'>;
+export interface StoredFileGetEntityPropertyQueryParams {
+    /**
+     * Property name of the owner entity. Is used for direct links only (when owner references file using foreign key)
+     */
+    propertyName?: string;
+    /**
+     * Id of the owner entity
+     */
+    ownerId: string;
+    /**
+     * Type short alias of the owner entity
+     */
+    ownerType: string;
+    /**
+     * File category
+     */
+    fileCategory?: string;
+    /**
+     * The requested API version
+     */
+    'api-version'?: string;
+}
+/**
+ * Get file by id
+ */
+export declare const useStoredFileGet: (props: UseStoredFileGetProps) => import("../hooks/useGet").UseGetReturn<StoredFileDtoAjaxResponse, IAjaxResponseBase, StoredFileGetQueryParams, void>;
+export type UseStoredFileGetEntityPropertyProps = Omit<UseGetProps<StoredFileDtoAjaxResponse, StoredFileGetEntityPropertyQueryParams, void>, 'path'>;
+/**
+ * Get file as property of the entity
+ */
+export declare const useStoredFileGetEntityProperty: (props: UseStoredFileGetEntityPropertyProps) => import("../hooks/useGet").UseGetReturn<StoredFileDtoAjaxResponse, IAjaxResponseBase, StoredFileGetEntityPropertyQueryParams, void>;
+export interface StoredFileGetFileVersionsQueryParams {
+    /**
+     * The requested API version
+     */
+    'api-version'?: string;
+}
+export interface StoredFileGetFileVersionsPathParams {
+    /**
+     * Id of the file
+     */
+    fileId: string;
+}
+export type StoredFileVersionInfoDtoListAjaxResponse = IAjaxResponse<StoredFileVersionInfoDto[] | null>;
+export type UseStoredFileGetFileVersionsProps = Omit<UseGetProps<StoredFileVersionInfoDtoListAjaxResponse, StoredFileGetFileVersionsQueryParams, StoredFileGetFileVersionsPathParams>, 'path'> & StoredFileGetFileVersionsPathParams;
+/**
+ * Get versions of the file with specified Id
+ */
+export declare const useStoredFileGetFileVersions: ({ fileId, ...props }: UseStoredFileGetFileVersionsProps) => import("../hooks/useGet").UseGetReturn<StoredFileVersionInfoDtoListAjaxResponse, IAjaxResponseBase, StoredFileGetFileVersionsQueryParams, StoredFileGetFileVersionsPathParams>;
+export interface DeleteFileByIdInput {
+    id: string;
+}
+export declare const useDeleteFileById: () => import("../hooks").IUseMutateResponseFixedEndpoint<DeleteFileByIdInput, any>;
