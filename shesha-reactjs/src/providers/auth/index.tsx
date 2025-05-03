@@ -403,6 +403,20 @@ const AuthProvider: FC<PropsWithChildren<IAuthProviderProps>> = ({
   };
 
   /**
+   * Dhanesh Malviya
+   * Clears user session
+   */
+  const clearUserSession = () => {
+    return new Promise((resolve, reject) => {
+      try {
+        logoutSuccess(resolve);
+      } catch (error) {
+        reject();
+      }
+    });
+  };
+
+  /**
    * Log the user
    */
   const logoutUser = () =>
@@ -496,6 +510,7 @@ const AuthProvider: FC<PropsWithChildren<IAuthProviderProps>> = ({
           verifyOtpSuccess,
           resetPasswordSuccess,
           fireHttpHeadersChanged,
+          clearUserSession,
           /* NEW_ACTION_GOES_HERE */
         }}
       >
